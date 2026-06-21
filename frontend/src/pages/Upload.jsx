@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { uploadResume } from "../services/api";
+import { uploadResumes } from "../services/api";
 
 function Upload() {
   const [file, setFile] = useState(null);
@@ -7,12 +7,19 @@ function Upload() {
 
   async function handleUpload() {
     if (!file) return;
-
+  
     setStatus("Uploading...");
-
-    const result = await uploadResume(file);
-
-    setStatus(`Uploaded: ${result.filename}`);
+  
+    try {
+      const result = await uploadResumes(file);
+    
+      console.log("Result:", result);
+    
+      setStatus(`Processed: ${result.processed}`);
+    } catch (err) {
+      console.error(err);
+      setStatus("Upload failed");
+    }
   }
 
   return (
@@ -21,6 +28,7 @@ function Upload() {
 
       <input
         type="file"
+        accept=".zip"
         onChange={(e) => setFile(e.target.files[0])}
       />
 

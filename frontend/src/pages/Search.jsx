@@ -5,16 +5,21 @@ import CandidateCard from "../components/CandidateCard";
 function Search() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const [searched, setSearched] = useState(false);
   const [loading, setLoading] = useState(false);
 
   async function handleSearch() {
     setLoading(true);
+    setResults([]);
 
-    const res = await searchCandidates(query);
+    try {
+      const res = await searchCandidates(query);
 
-    setResults(res.results);
-
-    setLoading(false);
+      setSearched(true);
+      setResults(res.results);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -26,12 +31,21 @@ function Search() {
         onChange={(e) => setQuery(e.target.value)}
       />
 
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} disabled={loading}>
+        {loading ? "Searching..." : "Search"}
+      </button>
 
-      {loading && <p>Searching...</p>}
+      {loading && <p>Loading...</p>}
 
-      {results?.map((candidate, i) => (
-        <CandidateCard key={i} candidate={candidate} />
+      {searched && !loading && results.length === 0 && (
+        <p>No matching candidates</p>
+      )}
+
+      {results.map((candidate, i) => (
+        <CandidateCard
+          key={i}
+          candidate={candidate}
+        />
       ))}
     </div>
   );

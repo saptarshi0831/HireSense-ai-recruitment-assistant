@@ -17,7 +17,34 @@ function CandidateCard({ candidate }) {
           : "Not detected"}
       </p>
 
-      <p>Match: {candidate.match_score}%</p>
+      <p>Summary: { candidate.summary || "No summary available"} </p>
+
+      <p>Match Score: {candidate.match_score}%</p>
+
+      <p>
+        Retrieval Confidence:{" "}
+        <span
+          style={{
+            color:
+              {
+                High: "green",
+                Medium: "orange",
+              }[candidate.confidence] || "red",
+            fontWeight: "bold",
+          }}
+        >
+          {candidate.confidence}
+        </span>
+      </p>
+
+      <p
+        style={{
+          fontSize: "12px",
+          color: "red",
+        }}
+      >
+        Results may be imperfect. Review resume before decisions.
+      </p>
 
       <a
         href={`http://127.0.0.1:8000/resume/${candidate.filename}`}
