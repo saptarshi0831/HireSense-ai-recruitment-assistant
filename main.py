@@ -10,6 +10,8 @@ from app.api.routes.profile import router as profile_router
 from app.api.routes.chat import router as chat_router
 from app.api.routes.resume import router as resume_router
 from app.api.routes.bulk_upload import router as bulk_router
+from app.api.routes.qa import router as qa_router
+from app.api.routes.compare import router as compare_router
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -34,6 +36,8 @@ app.include_router(profile_router)
 app.include_router(chat_router)
 app.include_router(resume_router)
 app.include_router(bulk_router)
+app.include_router(qa_router)
+app.include_router(compare_router)
 
 @app.get("/")
 async def root():

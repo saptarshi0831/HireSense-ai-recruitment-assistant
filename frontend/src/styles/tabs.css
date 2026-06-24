@@ -1,0 +1,107 @@
+.tabs-wrapper {
+  width: 100%;
+}
+
+/* TOP NAV */
+
+.tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  padding: 8px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: fit-content;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* BUTTON */
+
+.tab {
+  padding: 16px 26px;
+  border: none;
+  border-radius: 18px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-width: 160px;
+}
+
+/* HOVER */
+
+.tab:hover {
+  color: white;
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ACTIVE */
+
+.tab.active {
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #22d3ee
+  );
+  color: white;
+  box-shadow: 0 15px 35px rgba(34, 211, 238, 0.25);
+  transform: translateY(-2px);
+}
+
+/* GLOW */
+
+.tab.active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+}
+
+/* CONTENT */
+
+.tab-content {
+  padding: 8px;
+  min-height: 420px;
+  animation: fade 0.35s ease;
+}
+
+/* ANIMATION */
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .tabs {
+    width: 100%;
+  }
+
+  .tab {
+    flex: 1;
+    min-width: unset;
+    padding: 14px;
+    font-size: 14px;
+  }
+}

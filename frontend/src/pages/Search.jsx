@@ -2,6 +2,8 @@ import { useState } from "react";
 import { searchCandidates } from "../services/api";
 import CandidateCard from "../components/CandidateCard";
 
+import "../styles/search.css";
+
 function Search() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -9,6 +11,8 @@ function Search() {
   const [loading, setLoading] = useState(false);
 
   async function handleSearch() {
+    if (!query.trim()) return;
+
     setLoading(true);
     setResults([]);
 
@@ -16,38 +20,72 @@ function Search() {
       const res = await searchCandidates(query);
 
       setSearched(true);
-      setResults(res.results);
+      setResults(res.results || []);
+    } catch {
+      setResults([]);
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div>
-      <h2>Search Candidates</h2>
+    <section className="search-section">
+      <div className="search-header">
+        <h2>Search Candidates</h2>
 
-      <input
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+        <p>
+          Find the most relevant candidates instantly using AI.
+        </p>
+      </div>
 
-      <button onClick={handleSearch} disabled={loading}>
-        {loading ? "Searching..." : "Search"}
-      </button>
+      <div className="search-box">
+        <div className="form-row">
+          <input
+            type="text"
+            placeholder="Enter skills, role, or keywords..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
+          />
 
-      {loading && <p>Loading...</p>}
+          <button onClick={handleSearch} disabled={loading}>
+            {loading ? "Searching..." : "Search"}
+          </button>
+        </div>
+      </div>
 
-      {searched && !loading && results.length === 0 && (
-        <p>No matching candidates</p>
+      {loading && (
+        <div className="loader">
+          Searching resumes...
+        </div>
       )}
 
-      {results.map((candidate, i) => (
-        <CandidateCard
-          key={i}
-          candidate={candidate}
-        />
-      ))}
-    </div>
+      {searched && !loading && results.length === 0 && (
+        <div className="empty-state">
+          <h3>No matching candidates</h3>
+
+          <p>
+            Try:
+            <span> Python backend developer </span>
+          </p>
+        </div>
+      )}
+
+      {results.length > 0 && (
+        <div className="results-grid">
+          {results.map((candidate, i) => (
+            <CandidateCard
+              key={i}
+              candidate={candidate}
+            />
+          ))}
+        </div>
+      )}
+    </section>
   );
 }
 

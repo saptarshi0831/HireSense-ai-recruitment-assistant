@@ -1,15 +1,47 @@
-import Upload from "./pages/Upload";
-import Search from "./pages/Search";
+import Tabs from "./components/Tabs";
+import "./styles/app.css";
 
 function App() {
   return (
-    <div style={{ maxWidth: "1000px", margin: "auto", padding: "30px" }}>
-      <h1>AI Recruitment Assistant</h1>
-      <hr />
-      <Upload />
-      <hr />
-      <Search />
+
+    <div className="page">
+
+      <div className="container">
+
+        <section className="hero">
+
+          <h1 className="page-title">
+
+            HireSense
+
+          </h1>
+
+          <p className="tagline">
+
+            Intelligent Resume Screening • Faster Hiring • Better Decisions
+
+          </p>
+
+        </section>
+
+
+        <main className="content">
+
+          <Tabs />
+
+        </main>
+
+      </div>
+
+
+      <footer className="footer">
+
+        AI-generated recommendations may contain inaccuracies.
+
+      </footer>
+
     </div>
+
   );
 }
 

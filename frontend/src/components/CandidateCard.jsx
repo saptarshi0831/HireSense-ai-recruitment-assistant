@@ -1,60 +1,67 @@
+import "../styles/card.css";
+
 function CandidateCard({ candidate }) {
-  return (
-    <div
-      style={{
-        border: "1px solid #ddd",
-        borderRadius: "10px",
-        padding: "20px",
-        marginBottom: "20px",
-      }}
-    >
-      <h2>{candidate.candidate}</h2>
+return (
+<div className="card">
 
-      <p>
-        Skills:{" "}
-        {candidate.skills?.length
-          ? candidate.skills.join(", ")
-          : "Not detected"}
-      </p>
+<div className="card-top">
 
-      <p>Summary: { candidate.summary || "No summary available"} </p>
+<div>
 
-      <p>Match Score: {candidate.match_score}%</p>
+<h2 className="candidate-name">
+{candidate.candidate || "Unknown Candidate"}
+</h2>
 
-      <p>
-        Retrieval Confidence:{" "}
-        <span
-          style={{
-            color:
-              {
-                High: "green",
-                Medium: "orange",
-              }[candidate.confidence] || "red",
-            fontWeight: "bold",
-          }}
-        >
-          {candidate.confidence}
-        </span>
-      </p>
+<p className="candidate-summary">
+{candidate.summary || "No summary available"}
+</p>
 
-      <p
-        style={{
-          fontSize: "12px",
-          color: "red",
-        }}
-      >
-        Results may be imperfect. Review resume before decisions.
-      </p>
+</div>
 
-      <a
-        href={`http://127.0.0.1:8000/resume/${candidate.filename}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        View Resume
-      </a>
-    </div>
-  );
+<div className="card-metrics">
+
+<div className="badge score">
+Match<br/>
+{candidate.match_score}%
+</div>
+
+<div className={`badge confidence ${candidate.confidence?.toLowerCase()}`}>
+{candidate.confidence || "Medium"}
+</div>
+
+</div>
+
+</div>
+
+<h4>Skills</h4>
+
+<div className="skills">
+{candidate.skills?.length ? (
+candidate.skills.map((skill,index)=>(
+<span key={index} className="skill">
+{skill}
+</span>
+))
+) : (
+<span className="empty">Not detected</span>
+)}
+</div>
+
+<div className="warning">
+AI recommendations may be imperfect. Review resume before decisions.
+</div>
+
+<a
+className="resume-btn"
+href={`http://127.0.0.1:8000/resume/${candidate.filename}`}
+target="_blank"
+rel="noopener noreferrer"
+>
+View Resume
+</a>
+
+</div>
+);
 }
 
 export default CandidateCard;
