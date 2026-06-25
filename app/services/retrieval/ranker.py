@@ -1,9 +1,47 @@
-import re
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-lemmatizer = WordNetLemmatizer()
-STOPWORDS = set(stopwords.words("english"))
+def load_stopwords():
+try:
+    return set(
+        stopwords.words(
+            "english"
+        )
+    )
+
+except LookupError:
+
+    nltk.download(
+        "stopwords",
+        quiet=True
+    )
+
+    return set(
+        stopwords.words(
+            "english"
+        )
+    )
+
+
+def load_lemmatizer():
+try:
+    nltk.data.find(
+        "corpora/wordnet"
+    )
+
+except LookupError:
+
+    nltk.download(
+        "wordnet",
+        quiet=True
+    )
+
+return WordNetLemmatizer()
+
+STOPWORDS = load_stopwords()
+lemmatizer = load_lemmatizer()
+
 
 
 def extract_years(text):
