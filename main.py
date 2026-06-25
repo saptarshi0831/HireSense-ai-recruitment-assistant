@@ -40,7 +40,9 @@ app.include_router(qa_router)
 app.include_router(compare_router)
 
 @app.get("/")
-async def root():
+def health():
+
     return {
-        "message": "Resume Screening RAG Running"
+        "status":"running",
+        "project":"HireSense"
     }
