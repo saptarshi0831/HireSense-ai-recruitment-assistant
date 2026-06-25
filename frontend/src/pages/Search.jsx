@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { searchCandidates } from "../services/api";
 import CandidateCard from "../components/CandidateCard";
-
+import UploadResume from "../components/UploadResumes";
 import "../styles/search.css";
 
 function Search() {
@@ -38,6 +38,8 @@ function Search() {
         </p>
       </div>
 
+      <UploadResume />
+
       <div className="search-box">
         <div className="form-row">
           <input
@@ -52,7 +54,10 @@ function Search() {
             }}
           />
 
-          <button onClick={handleSearch} disabled={loading}>
+          <button
+            onClick={handleSearch}
+            disabled={loading}
+          >
             {loading ? "Searching..." : "Search"}
           </button>
         </div>
