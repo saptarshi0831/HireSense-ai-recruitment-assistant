@@ -1,66 +1,149 @@
 # HireSense - AI Resume Screening Platform
 
-An end-to-end AI-powered recruitment assistant that enables recruiters to efficiently search, compare, and evaluate candidates using semantic resume retrieval, Retrieval-Augmented Generation (RAG), and Large Language Models.
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python\&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi\&logoColor=white)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react\&logoColor=black)
+![Gemini](https://img.shields.io/badge/LLM-Gemini-4285F4)
+![ChromaDB](https://img.shields.io/badge/Database-ChromaDB-purple)
+![RAG](https://img.shields.io/badge/AI-RAG-orange)
+
+An end-to-end AI-powered recruitment assistant that helps recruiters efficiently search, compare, and evaluate candidates using **Retrieval-Augmented Generation (RAG)**, **semantic vector search**, and **Gemini-powered reasoning**.
 
 ---
 
-## Demo
+# 🎥 Demo
 
-🎥 **Project Demo:**
-Updating soon...
-```
-https://youtu.be/demo-link
+> 🚧 **Demo video coming soon**
+
+Replace the placeholder below after recording your walkthrough.
+
+```text
+https://youtu.be/your-demo-link
 ```
 
 ---
 
-## Overview
+# 📸 Screenshots
 
-HireSense automates the resume screening process by combining vector search, semantic retrieval, and AI-powered reasoning. Recruiters can upload resumes, search candidates using natural language, compare applicants, and ask follow-up questions without manually reviewing every resume.
+## 🏠 Home Dashboard
+
+Modern React dashboard providing access to resume upload, semantic search, candidate comparison, and AI recruiter features.
+
+![Home Dashboard](screenshots/home.png)
+
+---
+
+## 📤 Resume Upload
+
+Upload multiple resumes in ZIP format for automated parsing, embedding generation, and indexing.
+
+![Resume Upload](screenshots/upload.png)
+
+---
+
+## 🔍 Semantic Candidate Search
+
+Retrieve and rank candidates using semantic similarity instead of traditional keyword matching.
+
+![Candidate Search](screenshots/search.png)
+
+---
+
+## ⚖️ Candidate Comparison
+
+Compare applicants based on skills, projects, experience, and AI-generated recruiter insights.
+
+![Candidate Comparison](screenshots/compare.png)
+
+---
+
+## 🤖 Recruiter AI Assistant
+
+Ask natural language questions and receive evidence-based answers from retrieved resumes using RAG.
+
+![Recruiter AI Assistant](screenshots/qa.png)
+
+---
+
+# 📖 Overview
+
+Traditional recruitment requires manually reviewing hundreds of resumes.
+
+HireSense automates this workflow by combining semantic retrieval, vector search, and Large Language Models to help recruiters quickly identify the best candidates.
 
 Example recruiter queries:
 
-* "Find Python backend developers with FastAPI experience."
-* "Compare Python and Golang candidates."
-* "Who worked on RAG?"
-* "Which candidate has the strongest backend project?"
+* Find Python backend developers with FastAPI experience.
+* Compare Python and Golang candidates.
+* Who worked on RAG?
+* Which candidate has the strongest backend project?
+* Who has AWS experience?
+* Which candidate is suitable for an ML Engineer role?
 
 ---
 
-# Features
+# ✨ Key Highlights
 
-## Resume Processing
+* AI-powered semantic resume search
+* Bulk ZIP resume ingestion
+* Resume parsing and structured profile extraction
+* Candidate ranking with confidence scores
+* AI-powered candidate comparison
+* Recruiter Question & Answer assistant
+* ChromaDB vector database
+* Retrieval-Augmented Generation (RAG)
+* Gemini-powered candidate insights
+* Modern React dashboard with FastAPI backend
+
+---
+
+# 🚀 Features
+
+## 📄 Resume Processing
 
 * Bulk ZIP resume upload
-* PDF parsing and text extraction
-* Structured candidate profile extraction using Gemini
-* Automatic resume summarization
+* PDF resume parsing
+* Automatic text extraction
+* Structured candidate profile extraction
+* Resume summarization
+* Embedding generation
+* ChromaDB vector storage
 
-## Semantic Candidate Search
+---
 
-* Semantic search using Sentence Transformers
-* Candidate ranking with custom scoring
-* Match score and confidence estimation
+## 🔍 Semantic Candidate Search
+
+* Natural language candidate search
+* Semantic similarity search
+* AI-powered candidate ranking
+* Match score calculation
+* Confidence estimation
 * Resume preview and download
 
-## AI Recruiter Assistant
+---
 
-* Natural language recruiter Q&A
+## 🤖 AI Recruiter Assistant
+
+* Resume-based recruiter Q&A
 * Candidate comparison
-* Resume-based recommendations
+* AI-generated recruiter recommendations
 * Evidence-based responses using RAG
+* Structured candidate summaries
 
-## Frontend
+---
 
-* Modern React dashboard
+## 💻 Frontend
+
+* Modern responsive React dashboard
 * Resume upload interface
 * Candidate search
 * Candidate comparison
-* Recruiter AI Assistant
+* Recruiter AI assistant
+* Resume viewer
 
 ---
 
-# Tech Stack
+# 🛠 Tech Stack
 
 ### Backend
 
@@ -82,66 +165,101 @@ Example recruiter queries:
 * Retrieval-Augmented Generation (RAG)
 * Semantic Search
 * Vector Embeddings
-* Custom Candidate Ranking
+* Candidate Ranking
+* Large Language Models (LLMs)
 
 ---
 
-# System Architecture
+# 🧠 AI Pipeline
 
-```
-Resume Upload (ZIP/PDF)
-        │
-        ▼
- Resume Parsing
-        │
-        ▼
- Candidate Profile Extraction (Gemini)
-        │
-        ▼
- Embedding Generation
-        │
-        ▼
- Store Embeddings (ChromaDB)
-        │
-        ▼
- Natural Language Search
-        │
-        ▼
- Semantic Retrieval
-        │
-        ▼
+```text
+Resume Upload (ZIP / PDF)
+           │
+           ▼
+     Resume Parsing
+           │
+           ▼
+Candidate Profile Extraction (Gemini)
+           │
+           ▼
+   Embedding Generation
+           │
+           ▼
+ Store in ChromaDB
+           │
+           ▼
+ Natural Language Query
+           │
+           ▼
+   Semantic Retrieval
+           │
+           ▼
  Candidate Ranking
-        │
-        ├──────────────┐
-        ▼              ▼
- Candidate Cards   Recruiter AI Assistant
-                        │
-                        ▼
-             Candidate Comparison & Q&A
+      │            │
+      ▼            ▼
+Candidate Cards  AI Recruiter Assistant
+                     │
+                     ▼
+      Candidate Comparison & Resume Q&A
 ```
 
 ---
 
-# Run Locally
+# 📂 Project Structure
+
+```text
+HireSense/
+│
+├── app/
+│   ├── api/
+│   ├── services/
+│   ├── models/
+│   └── utils/
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── styles/
+│
+├── screenshots/
+│   ├── home.png
+│   ├── upload.png
+│   ├── search.png
+│   ├── compare.png
+│   └── qa.png
+│
+├── requirements.txt
+├── main.py
+└── README.md
+```
+
+---
+
+# ⚙️ Run Locally
 
 ## Backend
 
 ```bash
 pip install -r requirements.txt
+
 uvicorn main:app --reload
 ```
+
+---
 
 ## Frontend
 
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
 
 ---
 
-# Future Improvements
+# 🚀 Future Improvements
 
 * Recruiter authentication
 * Candidate analytics dashboard
@@ -150,12 +268,24 @@ npm run dev
 * Cloud storage integration
 * Docker deployment
 * CI/CD pipeline
-* Production deployment
+* Cloud deployment
+* Resume recommendation engine
 
 ---
 
-# Author
+# 👨‍💻 Author
 
 **Saptarshi Das**
 
-Built as a full-stack AI engineering project demonstrating Retrieval-Augmented Generation (RAG), semantic search, vector databases, and LLM-powered recruiter assistance.
+Built as a production-style AI Engineering project demonstrating:
+
+* Retrieval-Augmented Generation (RAG)
+* Semantic Resume Search
+* Vector Databases
+* FastAPI Backend Development
+* React Frontend Development
+* Gemini-powered AI Recruiter Assistant
+
+---
+
+⭐ **If you found this project interesting, consider giving it a star!**
