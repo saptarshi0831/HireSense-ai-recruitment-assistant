@@ -1,151 +1,161 @@
-# AI Recruitment Assistant (RAG-Based Candidate Screening)
+# HireSense - AI Resume Screening Platform
 
-An end-to-end AI-powered recruitment assistant that helps recruiters search and screen candidates using semantic resume retrieval, candidate ranking, and conversational querying.
+An end-to-end AI-powered recruitment assistant that enables recruiters to efficiently search, compare, and evaluate candidates using semantic resume retrieval, Retrieval-Augmented Generation (RAG), and Large Language Models.
+
+---
+
+## Demo
+
+🎥 **Project Demo:**
+
+```
+https://youtu.be/your-demo-link
+```
+
+---
 
 ## Overview
 
-Traditional recruitment involves manually reviewing hundreds of resumes.
+HireSense automates the resume screening process by combining vector search, semantic retrieval, and AI-powered reasoning. Recruiters can upload resumes, search candidates using natural language, compare applicants, and ask follow-up questions without manually reviewing every resume.
 
-This project automates candidate discovery by combining:
+Example recruiter queries:
 
-* Resume Parsing
-* Embedding Generation
-* Vector Search
-* Semantic Retrieval
-* Candidate Ranking
-* Conversational Search
-* Candidate Cards
-
-Recruiters upload resumes and search using natural language.
-
-Example:
-
-> "Find Python backend developers with FastAPI experience"
-
-The system retrieves and ranks relevant candidates.
+* "Find Python backend developers with FastAPI experience."
+* "Compare Python and Golang candidates."
+* "Who worked on RAG?"
+* "Which candidate has the strongest backend project?"
 
 ---
 
-## Features
+# Features
 
-### Resume Processing
+## Resume Processing
 
-* Upload PDF resumes
-* Extract resume text
-* Generate embeddings
-* Store in vector database
+* Bulk ZIP resume upload
+* PDF parsing and text extraction
+* Structured candidate profile extraction using Gemini
+* Automatic resume summarization
 
-### Candidate Search
+## Semantic Candidate Search
 
-* Semantic search
-* Candidate ranking
-* Candidate cards
-* Resume viewer
+* Semantic search using Sentence Transformers
+* Candidate ranking with custom scoring
+* Match score and confidence estimation
+* Resume preview and download
 
-### Conversational Layer
+## AI Recruiter Assistant
 
-* Follow-up recruiter questions
-* Requirement collection
-* Query building
+* Natural language recruiter Q&A
+* Candidate comparison
+* Resume-based recommendations
+* Evidence-based responses using RAG
 
-### Frontend
+## Frontend
 
-* React dashboard
-* Resume upload
+* Modern React dashboard
+* Resume upload interface
 * Candidate search
+* Candidate comparison
+* Recruiter AI Assistant
 
 ---
 
-## Tech Stack
+# Tech Stack
 
 ### Backend
 
-* FastAPI
 * Python
+* FastAPI
 * ChromaDB
-* SentenceTransformers
+* Sentence Transformers
+* Gemini 2.5 Flash
+* NLTK
 
 ### Frontend
 
 * React
 * Vite
+* CSS
 
-### Retrieval
+### AI & Retrieval
 
-* Vector Embeddings
+* Retrieval-Augmented Generation (RAG)
 * Semantic Search
+* Vector Embeddings
+* Custom Candidate Ranking
 
 ---
 
-## System Architecture
+# System Architecture
 
-Upload Resume
-
-↓
-
-Parse Resume
-
-↓
-
-Generate Embeddings
-
-↓
-
-Store in ChromaDB
-
-↓
-
-Recruiter Search
-
-↓
-
-Semantic Retrieval
-
-↓
-
-Ranking
-
-↓
-
-Candidate Cards
-
-↓
-
-Resume Viewer
+```
+Resume Upload (ZIP/PDF)
+        │
+        ▼
+ Resume Parsing
+        │
+        ▼
+ Candidate Profile Extraction (Gemini)
+        │
+        ▼
+ Embedding Generation
+        │
+        ▼
+ Store Embeddings (ChromaDB)
+        │
+        ▼
+ Natural Language Search
+        │
+        ▼
+ Semantic Retrieval
+        │
+        ▼
+ Candidate Ranking
+        │
+        ├──────────────┐
+        ▼              ▼
+ Candidate Cards   Recruiter AI Assistant
+                        │
+                        ▼
+             Candidate Comparison & Q&A
+```
 
 ---
 
-## Future Improvements
+# Run Locally
 
-* Gemini / Groq integration
-* ZIP Upload
-* Google Drive ingestion
-* PostgreSQL + pgvector
-* Hybrid Search
-* Metadata filtering
-* Dynamic follow-up questions
-* Docker deployment
+## Backend
 
----
-
-## Run Locally
-
-Backend:
-
+```bash
 pip install -r requirements.txt
-
 uvicorn main:app --reload
+```
 
-Frontend:
+## Frontend
 
+```bash
 cd frontend
-
 npm install
-
 npm run dev
+```
 
 ---
 
-## Author
+# Future Improvements
 
-Built as a production-style AI Engineering learning project.
+* Recruiter authentication
+* Candidate analytics dashboard
+* Hybrid Search (BM25 + Vector Search)
+* PostgreSQL + pgvector
+* Cloud storage integration
+* Docker deployment
+* CI/CD pipeline
+* Production deployment
+
+---
+
+# Author
+
+**Saptarshi Das**
+
+Built as a full-stack AI engineering project demonstrating Retrieval-Augmented Generation (RAG), semantic search, vector databases, and LLM-powered recruiter assistance.
