@@ -9,9 +9,9 @@ An end-to-end AI-powered recruitment assistant that enables recruiters to effici
 🎥 **Project Demo:**
 
 ```
-https://youtu.be/your-demo-link
+https://youtu.be/demo-link
 ```
-
+Updating soon...
 ---
 
 ## Overview
