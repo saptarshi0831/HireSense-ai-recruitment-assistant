@@ -45,7 +45,7 @@ Upload multiple resumes in ZIP format for automated parsing, embedding generatio
 
 Retrieve and rank candidates using semantic similarity instead of traditional keyword matching.
 
-![Candidate Search](screenshots/candidate-search.png)
+![Candidate Search](screenshots/candidate-search.jpeg)
 
 ---
 
