@@ -61,7 +61,7 @@ Compare applicants based on skills, projects, experience, and AI-generated recru
 
 Ask natural language questions and receive evidence-based answers from retrieved resumes using RAG.
 
-![Recruiter AI Assistant](screenshots/recruiter-assistant.png)
+![Recruiter AI Assistant](screenshots/recruiter-assisstant.png)
 
 ---
 
