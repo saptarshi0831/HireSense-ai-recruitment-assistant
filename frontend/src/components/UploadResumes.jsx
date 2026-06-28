@@ -19,12 +19,20 @@ function UploadResume() {
       const form = new FormData();
       form.append("file", file);
 
-      await axios.post(
-        "http://127.0.0.1:8000/upload-resume",
+      const res = await axios.post(
+        "http://127.0.0.1:8000/upload-resumes",
         form
       );
 
-      setUploaded(file.name);
+      setUploaded(
+        `Successfully uploaded "${file.name}". Parsed and indexed ${res.data.processed} resumes. Ready for AI search.`
+      );
+    } catch (err) {
+      console.error(err);
+
+      setUploaded(
+        "Upload failed. Please try again."
+      );
     } finally {
       setLoading(false);
     }
@@ -50,24 +58,24 @@ function UploadResume() {
           </div>
 
           <div className="upload-text">
-            Drag & drop ZIP files or click to upload resumes
+            Upload a ZIP file containing multiple resumes or a single PDF.
           </div>
 
           <div className="upload-hint">
-            Supports .zip and .pdf
+            Supported formats: .zip, .pdf
           </div>
         </div>
       </label>
 
       {loading && (
         <div className="upload-loading">
-          Uploading resumes...
+          ⏳ Uploading, parsing, generating embeddings, and indexing resumes...
         </div>
       )}
 
       {uploaded && (
         <div className="upload-success">
-          ✓ Uploaded: {uploaded}
+          {uploaded}
         </div>
       )}
     </div>
