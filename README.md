@@ -15,8 +15,6 @@ An end-to-end AI-powered recruitment assistant that helps recruiters efficiently
 
 > 🚧 **Demo video coming soon**
 
-Replace the placeholder below after recording your walkthrough.
-
 ```text
 https://youtu.be/your-demo-link
 ```
